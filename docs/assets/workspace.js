@@ -1,4 +1,4 @@
-const data = await fetch('data/dashboard.json').then(r => r.json());
+const data = await fetch('data/dashboard.json',{cache:'no-store'}).then(r => r.json());
 const taskMeta = {daily:{label:'每日市场与选股',sub:'核心指标与两种模型'},weekly:{label:'市场周报',sub:'每周复盘'},learning:{label:'市场观点',sub:'X 大V 日更（公开索引）'}};
 const views = {daily:[['overview','今日总览'],['pullback','回撤修复'],['earnings','AI 财报月历'],['rotation','行业轮动'],['revision','预期上修'],['compound','质量复利'],['status','运行状态']],weekly:[['overview','本周总览'],['rotation','行业轮动'],['details','ETF 与市场细节']],learning:[['overview','今日结论'],['details','来源与观察池']]};
 const $ = id => document.getElementById(id); const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
